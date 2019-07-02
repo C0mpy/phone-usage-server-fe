@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://phone-usage-server.herokuapp.com/'
+  api_url: 'https://phone-usage-server.herokuapp.com/'
 };
 
 /*
