@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SurveyService } from "../core/services/survey.service";
+import { SurveyService } from '../core/services/survey.service';
+import { Survey } from '../core/models/survey.model';
 
 @Component({
   selector: 'app-survey',
@@ -8,7 +9,8 @@ import { SurveyService } from "../core/services/survey.service";
   styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
-  surveys;
+  surveys: Survey[];
+  displayedColumns: string[] = ['title', 'description'];
 
   constructor(
     private surveyService: SurveyService
@@ -19,7 +21,7 @@ export class SurveyComponent implements OnInit {
   }
 
   getAll() {
-    this.surveys = this.surveyService.getAll();
+    this.surveyService.getAll().subscribe((surveys) => this.surveys = surveys);
   }
 
 }

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
+import { MatTableModule } from '@angular/material';
 
 import { SurveyComponent } from './survey.component';
 import { SurveyService } from '../core/services/survey.service';
 import { ApiService } from '../core';
 
 @NgModule({
-  imports: [],
+  imports: [
+    MatTableModule
+  ],
   declarations: [
     SurveyComponent
   ],
@@ -13,4 +16,4 @@ import { ApiService } from '../core';
     SurveyService, ApiService
   ]
 })
-export class SurveyModule {}
+export class SurveyModule { }
