@@ -1,27 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { SurveyService } from '../core/services/survey.service';
-import { Survey } from '../core/models/survey.model';
+import { SurveyService } from "../core/services/survey.service";
+import { Survey } from "../core/models/survey.model";
 
 @Component({
-  selector: 'app-survey',
-  templateUrl: './survey.component.html',
-  styleUrls: ['./survey.component.css']
+  selector: "app-survey",
+  templateUrl: "./survey.component.html",
+  styleUrls: ["./survey.component.css"]
 })
 export class SurveyComponent implements OnInit {
   surveys: Survey[];
-  displayedColumns: string[] = ['title', 'description'];
+  displayedColumns: string[] = ["id", "title", "description", "activeFrom", "activeUntil", "edit", "show"];
 
-  constructor(
-    private surveyService: SurveyService
-  ) { }
+  constructor(private surveyService: SurveyService) {}
 
   ngOnInit() {
     this.getAll();
   }
 
   getAll() {
-    this.surveyService.getAll().subscribe((surveys) => this.surveys = surveys);
+    this.surveyService.getAll().subscribe(surveys => (this.surveys = surveys));
+  }
+
+  isActive(survey: Survey): Boolean {
+    return this.surveyService.isActive(survey);
   }
 
 }
