@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
-import { Observable ,  throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
 
-  private jsonHeaders: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
   private formatErrors(error: any) {
-    return  throwError(error.error);
+    return throwError(error.error);
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
@@ -23,19 +21,17 @@ export class ApiService {
       .pipe(catchError(this.formatErrors));
   }
 
-  put(path: string, body: Object = {}): Observable<any> {
+  put(path: string, body: object = {}): Observable<any> {
     return this.http.put(
       `${environment.api_url}${path}`,
-      JSON.stringify(body),
-      { headers: this.jsonHeaders}
+      body
     ).pipe(catchError(this.formatErrors));
   }
 
-  post(path: string, body: Object = {}): Observable<any> {
+  post(path: string, body: object = {}): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,
-      JSON.stringify(body),
-      { headers: this.jsonHeaders}
+      body
     ).pipe(catchError(this.formatErrors));
   }
 
