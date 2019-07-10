@@ -7,6 +7,9 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
+
+  private jsonHeaders: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+
   constructor(
     private http: HttpClient
   ) {}
@@ -23,14 +26,16 @@ export class ApiService {
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
       `${environment.api_url}${path}`,
-      JSON.stringify(body)
+      JSON.stringify(body),
+      { headers: this.jsonHeaders}
     ).pipe(catchError(this.formatErrors));
   }
 
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,
-      JSON.stringify(body)
+      JSON.stringify(body),
+      { headers: this.jsonHeaders}
     ).pipe(catchError(this.formatErrors));
   }
 

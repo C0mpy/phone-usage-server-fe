@@ -23,7 +23,7 @@ export class SurveyService {
   }
 
   put(id: String, survey: Survey): Observable<Survey> {
-    return this.apiService.put('surveys/' + id, survey);
+    return this.apiService.put('surveys/' + id, {"survey": survey} );
   }
 
   isActive(survey: Survey): Boolean {
