@@ -1,1 +1,11 @@
-<p>survey-show works!</p>
+<div class="center-content">
+  <mat-card>
+    <mat-card-title>Survey Display</mat-card-title><br>
+    <mat-card-content>
+      <app-survey-form [survey]="survey" [disabled]=true></app-survey-form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onBack()">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -4,13 +4,13 @@ import { SurveyEditComponent } from './survey-edit.component';
 import { SurveyService } from '../core/services/survey.service';
 import { ApiService } from '../core';
 import { RouterModule } from '@angular/router';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { SurveyFormModule } from '../survey-form/survey-form.module';
-import { SurveyFormComponent } from '../survey-form/survey-form.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, SurveyFormModule, MatGridListModule],
+  imports: [CommonModule, RouterModule, SurveyFormModule, MatCardModule, MatButtonModule],
   declarations: [SurveyEditComponent],
-  providers: [SurveyService, ApiService, SurveyFormComponent]
+  providers: [SurveyService, ApiService]
 })
 export class SurveyEditModule {}

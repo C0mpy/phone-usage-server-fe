@@ -1,35 +1,22 @@
-<mat-card>
-  <mat-card-title>Edit Survey</mat-card-title><br>
-  <mat-card-content>
+<mat-form-field *ngIf="survey">
+  <input matInput placeholder="Title" [(ngModel)]="survey.title" [disabled]="disabled ? '' : null" required>
+</mat-form-field><br>
 
-    <mat-form-field *ngIf="survey">
-      <input matInput placeholder="Title" [(ngModel)]="survey.title" required>
-    </mat-form-field><br>
+<mat-form-field *ngIf="survey">
+  <textarea matInput placeholder="Description" [(ngModel)]="survey.description" matTextareaAutosize matAutosizeMinRows=1
+    matAutosizeMaxRows=5 [disabled]="disabled ? '' : null"></textarea>
+</mat-form-field><br>
 
-    <mat-form-field *ngIf="survey">
-      <textarea matInput placeholder="Description" [(ngModel)]="survey.description" matTextareaAutosize
-        matAutosizeMinRows=1 matAutosizeMaxRows=5></textarea>
-    </mat-form-field><br>
+<mat-form-field *ngIf="survey">
+  <input matInput [matDatepicker]="start_time_picker" [(ngModel)]="survey.intervals[0].start_time"
+    placeholder="Active From Date" [disabled]="disabled ? '' : null">
+  <mat-datepicker-toggle matSuffix [for]="start_time_picker"></mat-datepicker-toggle>
+  <mat-datepicker #start_time_picker></mat-datepicker>
+</mat-form-field><br>
 
-    <mat-form-field *ngIf="survey">
-      <input matInput [matDatepicker]="start_time_picker" [(ngModel)]="survey.intervals[0].start_time"
-        placeholder="Active From Date">
-      <mat-datepicker-toggle matSuffix [for]="start_time_picker"></mat-datepicker-toggle>
-      <mat-datepicker #start_time_picker></mat-datepicker>
-    </mat-form-field><br>
-
-    <mat-form-field *ngIf="survey">
-      <input matInput [matDatepicker]="end_time_picker" [(ngModel)]="survey.intervals[0].end_time"
-        placeholder="Active Until Date">
-      <mat-datepicker-toggle matSuffix [for]="end_time_picker"></mat-datepicker-toggle>
-      <mat-datepicker #end_time_picker></mat-datepicker>
-    </mat-form-field>
-  </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
-    <button mat-raised-button (click)="onCancel()">Cancel</button>
-  </mat-card-actions>
-
-
-</mat-card>
+<mat-form-field *ngIf="survey">
+  <input matInput [matDatepicker]="end_time_picker" [(ngModel)]="survey.intervals[0].end_time"
+    placeholder="Active Until Date" [disabled]="disabled ? '' : null">
+  <mat-datepicker-toggle matSuffix [for]="end_time_picker"></mat-datepicker-toggle>
+  <mat-datepicker #end_time_picker></mat-datepicker>
+</mat-form-field>

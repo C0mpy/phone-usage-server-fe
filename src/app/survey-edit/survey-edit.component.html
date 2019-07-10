@@ -1,5 +1,12 @@
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile [colspan]="4" [rowspan]="6">
-    <app-survey-form [survey]="survey"></app-survey-form>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="center-content">
+  <mat-card>
+    <mat-card-title>Edit Survey</mat-card-title><br>
+    <mat-card-content>
+      <app-survey-form [survey]="survey" [disabled]=false></app-survey-form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+      <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

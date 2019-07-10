@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Survey } from '../core/models/survey.model';
-import { Router } from '@angular/router';
-import { SurveyService } from '../core/services/survey.service';
 
 @Component({
   selector: 'app-survey-form',
@@ -10,18 +8,11 @@ import { SurveyService } from '../core/services/survey.service';
 })
 export class SurveyFormComponent implements OnInit {
   @Input() survey: Survey;
+  @Input() disabled: boolean;
 
-  constructor(private router: Router, private surveyService: SurveyService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onSave() {
-    this.surveyService.put(this.survey.id, this.survey).subscribe(survey => this.router.navigate(['survey']));
-  }
-
-  onCancel() {
-    this.router.navigate(['survey']);
   }
 
 }

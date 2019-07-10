@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SurveyService } from '../core/services/survey.service';
+import { Survey } from '../core/models/survey.model';
 
 @Component({
   selector: 'app-survey-show',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./survey-show.component.css']
 })
 export class SurveyShowComponent implements OnInit {
+  survey: Survey;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.surveyService.get(params.get('surveyId')).subscribe(survey => (this.survey = survey));
+    });
+  }
+
+  onBack() {
+    this.router.navigate(['/']);
   }
 
 }
