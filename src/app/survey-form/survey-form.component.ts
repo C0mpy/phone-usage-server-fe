@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Survey } from '../core/models/survey.model';
-import { Router } from "@angular/router"
+import { Router } from '@angular/router';
 import { SurveyService } from '../core/services/survey.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class SurveyFormComponent implements OnInit {
   }
 
   onSave() {
-      this.surveyService.put(this.survey.id, this.survey).subscribe(survey => this.router.navigate(['survey']));
+    this.surveyService.put(this.survey.id, this.survey).subscribe(survey => this.router.navigate(['survey']));
   }
 
   onCancel() {

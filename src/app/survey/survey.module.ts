@@ -11,6 +11,7 @@ import { CommonModule } from "@angular/common";
 @NgModule({
   imports: [MatTableModule, MatButtonModule, RouterModule, CommonModule],
   declarations: [SurveyComponent],
-  providers: [SurveyService, ApiService]
+  providers: [SurveyService, ApiService],
+  exports: [SurveyComponent]
 })
 export class SurveyModule {}
