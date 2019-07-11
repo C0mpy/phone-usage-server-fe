@@ -26,6 +26,10 @@ export class SurveyService {
     return this.apiService.put('surveys/' + id, { 'survey': survey });
   }
 
+  post(survey: Survey): Observable<Survey> {
+    return this.apiService.post('surveys', { survey });
+  }
+
   isActive(survey: Survey): boolean {
     const currentDate = new Date();
 
