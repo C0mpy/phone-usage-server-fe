@@ -12,12 +12,16 @@ import { SurveyService } from '../core/services/survey.service';
 export class QuestionsShowComponent implements OnInit {
   @Input() survey: Survey;
   questions: Question[] = [];
-  displayedColumns: string[] = ['id', 'content'];
+  displayedColumns: string[] = ['id', 'content', 'edit'];
 
   constructor(private route: ActivatedRoute, private questionService: QuestionService, private surveyService: SurveyService) { }
 
   ngOnInit() {
     this.surveyService.getQuestions(this.survey.id).subscribe(questions => this.questions = questions);
+  }
+
+  isActiveSurvey(): Boolean {
+    return this.surveyService.isActive(this.survey);
   }
 
 }
