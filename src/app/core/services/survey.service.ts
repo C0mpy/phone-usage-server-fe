@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Survey } from '../models/survey.model';
+import { Survey, Question } from '../models';
 import { environment } from '../../../environments/environment';
 import { ApiService } from './api.service';
 
@@ -40,6 +40,10 @@ export class SurveyService {
     } else {
       return new Date(survey.intervals[0].start_time) <= currentDate && currentDate <= new Date(survey.intervals[0].end_time);
     }
+  }
+
+  getQuestions(surveyId: String): Observable<Question[]> {
+    return this.apiService.get('surveys/' + surveyId + '/questions');
   }
 
 }

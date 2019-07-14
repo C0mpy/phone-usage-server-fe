@@ -23,4 +23,8 @@ export class SurveyShowComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  onNewQuestion() {
+    console.log('Show new question screen');
+
+  }
 }

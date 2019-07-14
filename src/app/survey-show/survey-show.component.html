@@ -2,9 +2,11 @@
   <mat-card>
     <mat-card-title>Survey Display</mat-card-title><br>
     <mat-card-content>
-      <app-survey-form [survey]="survey" [disabled]=true></app-survey-form>
+      <app-survey-form *ngIf="survey" [survey]="survey" [disabled]=true></app-survey-form>
+      <app-questions-show *ngIf="survey" [survey]="survey"></app-questions-show>
     </mat-card-content>
     <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onNewQuestion()">New Question</button>
       <button mat-raised-button (click)="onBack()">Back</button>
     </mat-card-actions>
   </mat-card>

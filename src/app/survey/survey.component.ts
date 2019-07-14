@@ -10,8 +10,8 @@ import { Survey } from '../core/models/survey.model';
 })
 export class SurveyComponent implements OnInit {
   surveys: Survey[];
-  displayedColumns: string[] = ['id', 'title', 'description', 'activeFrom', 'activeUntil', 'edit', 'show'];
 
+  displayedColumns: string[] = ['id', 'title', 'description', 'activeFrom', 'activeUntil', 'edit', 'show'];
   constructor(private surveyService: SurveyService) {}
 
   ngOnInit() {
