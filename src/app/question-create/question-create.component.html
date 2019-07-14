@@ -1,0 +1,12 @@
+<div class="center-content">
+  <mat-card>
+    <mat-card-title>Create a new Question</mat-card-title><br>
+    <mat-card-content>
+      <app-question-form [question]="question" [disabled]=false></app-question-form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onCreate()">Create</button>
+      <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

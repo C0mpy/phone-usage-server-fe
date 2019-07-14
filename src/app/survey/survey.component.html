@@ -28,14 +28,14 @@
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let survey">
-      <a *ngIf="!isActive(survey)" mat-button [routerLink]="['/survey/', survey.id, 'edit']">Edit</a>
+      <a *ngIf="!isActive(survey)" mat-button [routerLink]="['/surveys/', survey.id, 'edit']">Edit</a>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="show">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let survey">
-        <a mat-button [routerLink]="['/survey/', survey.id]">Show</a>
+        <a mat-button [routerLink]="['/surveys/', survey.id]">Show</a>
       </td>
   </ng-container>
 

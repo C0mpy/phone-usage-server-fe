@@ -16,7 +16,7 @@ export class QuestionService {
   getAll(): Observable<Question[]> {
     return this.apiService.get('questions');
   }
-  
+
   get(id: string): Observable<Question> {
     return this.apiService.get('questions/' + id);
   }
@@ -25,8 +25,8 @@ export class QuestionService {
     return this.apiService.put('questions/' + id, { 'question': question });
   }
 
-  post(question: Question): Observable<Question> {
-    return this.apiService.post('question', { question });
+  post(surveyId: string, question: Question): Observable<Question> {
+    return this.apiService.post('surveys/' + surveyId + '/questions', { question });
   }
 
 }

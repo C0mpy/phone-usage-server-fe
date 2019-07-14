@@ -10,6 +10,7 @@ import { SurveyEditModule } from './survey-edit/survey-edit.module';
 import { SurveyShowModule } from './survey-show/survey-show.module';
 import { IndexPageModule } from './index-page/index-page.module';
 import { SurveyCreateModule } from './survey-create/survey-create.module';
+import { QuestionCreateModule } from './question-create/question-create.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { SurveyCreateModule } from './survey-create/survey-create.module';
     SurveyEditModule,
     SurveyShowModule,
     SurveyCreateModule,
+    QuestionCreateModule,
     IndexPageModule,
     HttpClientModule
   ],

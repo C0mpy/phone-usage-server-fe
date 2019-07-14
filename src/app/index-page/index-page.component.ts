@@ -14,8 +14,8 @@ export class IndexPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreate() {
-    this.router.navigate(['survey/create']);
+  onNewSurvey() {
+    this.router.navigate(['surveys/create']);
   }
 
 }
