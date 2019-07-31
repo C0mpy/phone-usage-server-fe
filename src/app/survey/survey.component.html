@@ -17,18 +17,18 @@
 
   <ng-container matColumnDef="activeFrom">
     <th mat-header-cell *matHeaderCellDef> Active From </th>
-    <td mat-cell *matCellDef="let element"> {{ element.intervals[0].start_time | date: 'dd/MM/yyyy' }} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.start_time | date: 'dd/MM/yyyy' }} </td>
   </ng-container>
 
   <ng-container matColumnDef="activeUntil">
     <th mat-header-cell *matHeaderCellDef> Active Until </th>
-    <td mat-cell *matCellDef="let element"> {{ element.intervals[0].end_time | date: 'dd/MM/yyyy' }} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.end_time | date: 'dd/MM/yyyy' }} </td>
   </ng-container>
 
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let survey">
-      <a *ngIf="!isActive(survey)" mat-button [routerLink]="['/surveys/', survey.id, 'edit']">Edit</a>
+      <button mat-button [disabled]="isActive(survey)" [routerLink]="['/surveys/', survey.id, 'edit']">Edit</button>
     </td>
   </ng-container>
 

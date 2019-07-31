@@ -22,7 +22,7 @@ export class SurveyComponent implements OnInit {
     this.surveyService.getAll().subscribe(surveys => (this.surveys = surveys));
   }
 
-  isActive(survey: Survey): Boolean {
+  isActive(survey: Survey): boolean {
     return this.surveyService.isActive(survey);
   }
 

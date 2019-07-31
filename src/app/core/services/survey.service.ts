@@ -33,16 +33,16 @@ export class SurveyService {
   isActive(survey: Survey): boolean {
     const currentDate = new Date();
 
-    if (!survey || !survey.intervals || survey.intervals.length === 0 || !survey.intervals[0].start_time) {
+    if (!survey || !survey.start_time) {
       return false;
-    } else if (!survey.intervals[0].end_time) {
-      return new Date(survey.intervals[0].start_time) <= currentDate;
+    } else if (!survey.end_time) {
+      return new Date(survey.start_time) <= currentDate;
     } else {
-      return new Date(survey.intervals[0].start_time) <= currentDate && currentDate <= new Date(survey.intervals[0].end_time);
+      return new Date(survey.start_time) <= currentDate && currentDate <= new Date(survey.end_time);
     }
   }
 
-  getQuestions(surveyId: String): Observable<Question[]> {
+  getQuestions(surveyId: string): Observable<Question[]> {
     return this.apiService.get('surveys/' + surveyId + '/questions');
   }
 

@@ -5,5 +5,6 @@ export interface Survey {
   id: string;
   title: string;
   description: string;
-  intervals: Interval[];
+  start_time: Date;
+  end_time?: Date;
 }
