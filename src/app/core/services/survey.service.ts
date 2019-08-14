@@ -9,7 +9,6 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class SurveyService {
-  private url = `${environment.api_url}/surveys`;
   surveys: Survey[];
 
   constructor(private apiService: ApiService) { }

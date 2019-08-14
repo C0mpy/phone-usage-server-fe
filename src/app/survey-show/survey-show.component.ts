@@ -31,4 +31,8 @@ export class SurveyShowComponent implements OnInit {
     this.router.navigate(['surveys/' + this.survey.id + '/survey-results']);
   }
 
+  surveyIsActive() {
+    return this.surveyService.isActive(this.survey);
+  }
+
 }

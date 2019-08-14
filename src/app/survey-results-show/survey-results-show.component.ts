@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyResult } from '../core/models/survey-result.model';
 import { Survey } from '../core/models/survey.model';
 import { SurveyService } from '../core/services/survey.service';
+import { SurveyResultService } from '../core/services/survey-result.service';
 import { UtilService } from '../core/services/util.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class SurveyResultsShowComponent implements OnInit {
   surveyResults: SurveyResult[];
   displayedColumns: string[] = ['uuid', 'timeSpent', 'show'];
 
-  constructor(private route: ActivatedRoute, private surveyService: SurveyService, private utilService: UtilService) { }
+  constructor(private route: ActivatedRoute, private surveyService: SurveyService, private router: Router,
+              private surveyResultService: SurveyResultService, private utilService: UtilService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -26,15 +28,8 @@ export class SurveyResultsShowComponent implements OnInit {
         this.surveyService.getSurveyResults(params.get('surveyId')).subscribe(
           surveyResults => {
             this.surveyResults = surveyResults;
-
             for (const surveyResult of surveyResults) {
-              let timeSpentOnPhoneSumm = 0;
-              for (const interval of surveyResult.intervals) {
-                console.log(interval.end_time);
-
-                timeSpentOnPhoneSumm += new Date(interval.end_time).getTime() - new Date(interval.start_time).getTime();
-              }
-              surveyResult.time_spent_on_phone = timeSpentOnPhoneSumm;
+              surveyResult.time_spent_on_phone = this.surveyResultService.calcTimeSpentOnPhone(surveyResult);
             }
           });
       });
@@ -43,6 +38,10 @@ export class SurveyResultsShowComponent implements OnInit {
 
   msToTime(milliseconds: number) {
     return this.utilService.msToTime(milliseconds);
+  }
+
+  onBack() {
+    this.router.navigate(['surveys/' + this.survey.id]);
   }
 
 }

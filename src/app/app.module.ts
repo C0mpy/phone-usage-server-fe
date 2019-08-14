@@ -13,6 +13,9 @@ import { SurveyCreateModule } from './survey-create/survey-create.module';
 import { QuestionCreateModule } from './question-create/question-create.module';
 import { QuestionEditModule } from './question-edit/question-edit.module';
 import { SurveyResultsShowModule} from './survey-results-show/survey-results-show.module';
+import { SurveyResultShowModule } from './survey-result-show/survey-result-show.module';
+import { QuestionResponsesShowModule } from './question-responses-show/question-responses-show.module';
+import { IntervalsShowModule } from './intervals-show/intervals-show.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,10 +29,13 @@ import { SurveyResultsShowModule} from './survey-results-show/survey-results-sho
     SurveyShowModule,
     SurveyCreateModule,
     SurveyResultsShowModule,
+    SurveyResultShowModule,
     QuestionCreateModule,
     IndexPageModule,
     HttpClientModule,
-    QuestionEditModule
+    QuestionEditModule,
+    QuestionResponsesShowModule,
+    IntervalsShowModule
   ],
   providers: [],
   bootstrap: [AppComponent],

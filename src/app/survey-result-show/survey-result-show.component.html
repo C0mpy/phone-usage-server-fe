@@ -1,0 +1,27 @@
+<div class="center-content" *ngIf="surveyResult">
+  <mat-card>
+    <mat-card-title> Survey Result Display </mat-card-title>
+    <mat-card-content>
+      <mat-form-field *ngIf="surveyResult" style="width: 100%;">
+        <input matInput placeholder="User ID" value=" {{ surveyResult.uuid }}" disabled required>
+      </mat-form-field><br>
+      <mat-form-field *ngIf="surveyResult" style="width: 100%;">
+        <input matInput placeholder="Survey Title" value="{{ surveyResult.survey.title }}" disabled>
+      </mat-form-field>
+      <mat-form-field *ngIf="surveyResult" style="width: 100%;">
+        <input matInput placeholder="Survey Description" value="{{ surveyResult.survey.description }}" disabled>
+      </mat-form-field>
+      <mat-form-field *ngIf="surveyResult" style="width: 100%;">
+        <input matInput placeholder="Time Spent On Phone" value="{{ msToTime(surveyResult.time_spent_on_phone) }}"
+          disabled>
+      </mat-form-field>
+
+      <app-question-responses-show *ngIf="surveyResult" [questionResponses]="surveyResult.question_responses">
+      </app-question-responses-show>
+      <app-intervals-show *ngIf="surveyResult" [intervals]="surveyResult.intervals"></app-intervals-show>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onBack()">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

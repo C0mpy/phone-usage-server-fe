@@ -6,8 +6,8 @@
       <app-questions-show *ngIf="survey" [survey]="survey"></app-questions-show>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="onNewQuestion()">New Question</button>
-      <button mat-raised-button color="primary" (click)="onViewSurveyResults()">View Survey Results</button>
+      <button mat-raised-button color="primary" (click)="onNewQuestion()" [disabled]="surveyIsActive()">New Question</button>
+      <button mat-raised-button color="primary" (click)="onViewSurveyResults()" [disabled]="!surveyIsActive()">View Survey Results</button>
       <button mat-raised-button (click)="onBack()">Back</button>
     </mat-card-actions>
   </mat-card>

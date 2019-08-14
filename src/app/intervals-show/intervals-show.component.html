@@ -1,0 +1,23 @@
+<div class="center-content" *ngIf="intervals && intervals.length">
+  <mat-card>
+    <mat-card-title>Survey Result's Intervals</mat-card-title><br>
+    <mat-card-content>
+      <table mat-table [dataSource]="intervals" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="startTime">
+          <th mat-header-cell *matHeaderCellDef> Start Time </th>
+          <td mat-cell *matCellDef="let interval"> {{ interval.start_time | date: 'dd/MM/yyyy hh:mm:ss' }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </ng-container>
+
+        <ng-container matColumnDef="endTime">
+          <th mat-header-cell *matHeaderCellDef> End Time </th>
+          <td mat-cell *matCellDef="let interval"> {{ interval.end_time | date: 'dd/MM/yyyy hh:mm:ss' }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
