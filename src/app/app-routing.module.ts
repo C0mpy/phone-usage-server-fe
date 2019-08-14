@@ -5,6 +5,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { SurveyComponent } from './survey/survey.component';
 import { SurveyEditComponent } from './survey-edit/survey-edit.component';
 import { SurveyShowComponent } from './survey-show/survey-show.component';
+import { SurveyResultsShowComponent } from './survey-results-show/survey-results-show.component';
 import { SurveyCreateComponent } from './survey-create/survey-create.component';
 import { QuestionsShowComponent } from './questions-show/questions-show.component';
 import { QuestionCreateComponent } from './question-create/question-create.component';
@@ -22,7 +23,8 @@ const routes: Routes = [];
 
       { path: 'surveys/:surveyId/questions', component: QuestionsShowComponent },
       { path: 'surveys/:surveyId/questions/create', component: QuestionCreateComponent },
-      { path: 'surveys/:surveyId/questions/:questionId/edit', component: QuestionEditComponent }
+      { path: 'surveys/:surveyId/questions/:questionId/edit', component: QuestionEditComponent },
+      { path: 'surveys/:surveyId/survey-results', component: SurveyResultsShowComponent }
     ])
   ],
   exports: [RouterModule]

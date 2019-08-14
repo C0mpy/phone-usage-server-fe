@@ -26,4 +26,9 @@ export class SurveyShowComponent implements OnInit {
   onNewQuestion() {
     this.router.navigate(['surveys/' + this.survey.id + '/questions/create']);
   }
+
+  onViewSurveyResults() {
+    this.router.navigate(['surveys/' + this.survey.id + '/survey-results']);
+  }
+
 }

@@ -20,7 +20,7 @@ export class QuestionsShowComponent implements OnInit {
     this.surveyService.getQuestions(this.survey.id).subscribe(questions => this.questions = questions);
   }
 
-  isActiveSurvey(): Boolean {
+  isActiveSurvey(): boolean {
     return this.surveyService.isActive(this.survey);
   }
 

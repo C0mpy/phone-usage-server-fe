@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Survey, Question } from '../models';
+import { Survey, Question, SurveyResult } from '../models';
 import { environment } from '../../../environments/environment';
 import { ApiService } from './api.service';
 
@@ -44,6 +44,10 @@ export class SurveyService {
 
   getQuestions(surveyId: string): Observable<Question[]> {
     return this.apiService.get('surveys/' + surveyId + '/questions');
+  }
+
+  getSurveyResults(surveyId: string): Observable<SurveyResult[]> {
+    return this.apiService.get('surveys/' + surveyId + '/survey_results');
   }
 
 }
