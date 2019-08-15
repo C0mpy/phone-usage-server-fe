@@ -49,4 +49,8 @@ export class SurveyService {
     return this.apiService.get('surveys/' + surveyId + '/survey_results');
   }
 
+  getJson(surveyId: string): Observable<string> {
+    return this.apiService.get('surveys/' + surveyId + '/json');
+  }
+
 }

@@ -31,6 +31,11 @@ export class SurveyShowComponent implements OnInit {
     this.router.navigate(['surveys/' + this.survey.id + '/survey-results']);
   }
 
+  onSurveyJsonData() {
+    this.surveyService.getJson(this.survey.id).subscribe(json =>
+      console.log(JSON.stringify(json)));
+  }
+
   surveyIsActive() {
     return this.surveyService.isActive(this.survey);
   }
