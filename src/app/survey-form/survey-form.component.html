@@ -9,14 +9,14 @@
 
 <mat-form-field *ngIf="survey">
   <input matInput [matDatepicker]="start_time_picker" [(ngModel)]="survey.start_time"
-    placeholder="Active From Date" [disabled]="disabled ? '' : null">
+        [max]="subtractDay(survey.end_time)"placeholder="Active From Date" [disabled]="disabled ? '' : null">
   <mat-datepicker-toggle matSuffix [for]="start_time_picker"></mat-datepicker-toggle>
   <mat-datepicker #start_time_picker></mat-datepicker>
 </mat-form-field><br>
 
 <mat-form-field *ngIf="survey">
   <input matInput [matDatepicker]="end_time_picker" [(ngModel)]="survey.end_time"
-    placeholder="Active Until Date" [disabled]="disabled ? '' : null">
+        [min]="addDay(survey.start_time)" placeholder="Active Until Date" [disabled]="disabled ? '' : null">
   <mat-datepicker-toggle matSuffix [for]="end_time_picker"></mat-datepicker-toggle>
   <mat-datepicker #end_time_picker></mat-datepicker>
 </mat-form-field>

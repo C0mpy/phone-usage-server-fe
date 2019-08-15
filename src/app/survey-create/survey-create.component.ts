@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SurveyCreateComponent implements OnInit {
 
-  survey: Survey = {title: '', description: '', start_time: new Date(), end_time: new Date()} as Survey;
+  survey: Survey = {title: '', description: '', start_time: new Date(),
+                    end_time: new Date(new Date().getTime() + (24 * 60 * 60 * 1000))} as Survey;
 
   constructor(private router: Router, private surveyService: SurveyService) { }
 

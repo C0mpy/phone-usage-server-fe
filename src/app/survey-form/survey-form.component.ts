@@ -15,4 +15,12 @@ export class SurveyFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  addDay(startTime: Date) {
+    return new Date(new Date(startTime).getTime() + (1000 * 60 * 60 * 24));
+  }
+
+  subtractDay(endTime: Date) {
+    return new Date(new Date(endTime).getTime() - (1000 * 60 * 60 * 24));
+  }
+
 }
