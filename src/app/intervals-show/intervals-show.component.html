@@ -1,5 +1,5 @@
-<div class="center-content" *ngIf="intervals && intervals.length">
-  <mat-card>
+<div *ngIf="intervals && intervals.length">
+  <mat-card >
     <mat-card-title>Survey Result's Intervals</mat-card-title><br>
     <mat-card-content>
       <table mat-table [dataSource]="intervals" class="mat-elevation-z8">

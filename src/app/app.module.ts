@@ -16,6 +16,7 @@ import { SurveyResultsShowModule} from './survey-results-show/survey-results-sho
 import { SurveyResultShowModule } from './survey-result-show/survey-result-show.module';
 import { QuestionResponsesShowModule } from './question-responses-show/question-responses-show.module';
 import { IntervalsShowModule } from './intervals-show/intervals-show.module';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +36,8 @@ import { IntervalsShowModule } from './intervals-show/intervals-show.module';
     HttpClientModule,
     QuestionEditModule,
     QuestionResponsesShowModule,
-    IntervalsShowModule
+    IntervalsShowModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
