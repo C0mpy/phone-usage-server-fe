@@ -1,27 +1,33 @@
-# PhoneUsageServerFe
+# Phone-Usage data gathering Frontend
+Angular 8 application that is frontend for the https://github.com/C0mpy/phone-usage-server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
-## Development server
+### Prerequisites
+To run the Phone-Usage-Server-FE on your local machine, you will need:
+1. Development was done on Ubuntu 18.4 and the following tutorials are made with that in mind
+2. `$ sudo apt install nodejs`
+3. `$ sudo apt install npm`
+4. `$ npm install -g @angular/cli`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installing
+A step by step series of examples that tell you how to get a development env running:
+1. clone this repo and locate your terminal to phone-usage-server-fe dir
+	```
+	$ git clone https://github.com/C0mpy/phone-usage-server-fe
+	$ cd ./phone-usage-server-fe
+	```
+2. install project dependencies:
+	```
+	$ ng install
+	```
+3. start the server 
+	```$ ng serve```
 
-## Code scaffolding
+## Deployment
+Application is deployed to: [https://phone-usage-server-fe.herokuapp.com/](https://phone-usage-server-fe.herokuapp.com/)
+Deployment is executed automaticlly when pushing to the Github repo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Acknowledgments
+* Hat tip to [igordejanovic](https://github.com/igordejanovic) for reviewing the code
