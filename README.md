@@ -20,7 +20,7 @@ A step by step series of examples that tell you how to get a development env run
 	```
 2. install project dependencies:
 	```
-	$ ng install
+	$ npm install
 	```
 3. start the server 
 	```$ ng serve```
