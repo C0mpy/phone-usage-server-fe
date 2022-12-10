@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
     "angular-google-charts": "^0.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "rxjs": "~6.4.0",
     "serializr": "^1.5.1",
     "tslib": "^1.9.0",
